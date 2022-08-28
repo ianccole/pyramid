@@ -3,3 +3,4 @@ def includeme(config):
     config.add_route('home',        '/')
     config.add_route('edit',        '/edit/{id}')
     config.add_route('delete',      '/delete/{id}')
+    config.add_route('add',         '/add')

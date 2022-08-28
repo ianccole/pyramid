@@ -5,7 +5,7 @@
 ## </div>
 
 <h3>MyModel</h3>
-<form method="post">
+## <form method="post">
     <div class="content">
     <table class="table tablesorter table-striped table-condensed">
         <thead>
@@ -44,7 +44,13 @@
         </tr>
     </%def>
     ## <input type="submit" name='delete' value='delete' class="btn btn-default" onclick="return confirm('Are you sure?')" >
-    <input type="submit" name='add' value='add' class="btn btn-default" >
+    ## <input type="submit" name='add' value='add' class="btn btn-default" formaction="${request.route_url('add')}">
     ## <input type="submit" name='edit' value='edit' class="btn btn-default" >
     ## <input type="submit" name='edit' value='edit' class="btn btn-default" formaction="${request.route_url('edit')}">>
-</form>
+
+    ## <a href="${request.route_url('add')}">
+    ##     <input type="button" class="btn btn-default" value="add" />
+    ## </a>
+    <a href="${request.route_url('add')}" class="btn btn-default">add</a>
+    
+## </form>
