@@ -25,12 +25,98 @@
 
   <body>
 
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#antenna-nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="${request.route_url('home')}">MyModel</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="antenna-nav">
+        <ul class="nav navbar-nav">
+          <li><a href="${request.route_url('home')}">home</a></li>
+          ## <li><a href="${request.route_url('unitsnoslash')}">Units</a></li>
+          ## <li><a href="${request.route_url('testtypes')}">TestTypes</a></li>
+          ## <li><a href="${request.route_url('testsets')}">TestSets</a></li>
+          ## <li><a href="${request.route_url('testsnoslash')}">Tests</a></li>
+          ## <li><a href="${request.route_url('analysis')}">Analysis</a></li>
+        </ul>
+        ## <form class="navbar-form navbar-right">
+        ##   <div class="form-group">
+        ##     <input type="text" class="form-control" placeholder="Search" name="search" id="search">
+        ##   </div>
+        ##   ## <button type="submit" class="btn btn-default">Submit</button>
+        ## </form>
+      </div>
+    </nav>
+
     <div class="starter-template1">
       <div class="container">
         <div class="row">
           ## <div class="col-md-2">
           ##   <img class="logo img-responsive" src="${request.static_url('basic:static/pyramid.png') }" alt="pyramid web framework">
           ## </div>
+
+          % if request.session.peek_flash('success'):
+            <div id="flash">
+              <% flash = request.session.pop_flash('success') %>
+              % for message in flash:
+                <div class="alert alert-success alert-dismissible" role="alert">
+                  ${message}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              % endfor
+            </div>
+          % endif
+
+          % if request.session.peek_flash('info'):
+            <div id="flash">
+              <% flash = request.session.pop_flash('info') %>
+              % for message in flash:
+                <div class="alert alert-info alert-dismissible" role="alert">
+                  ${message}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              % endfor
+            </div>
+          % endif
+
+          % if request.session.peek_flash('warn'):
+            <div id="flash">
+              <% flash = request.session.pop_flash('warn') %>
+              % for message in flash:
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                  ${message}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              % endfor
+            </div>
+          % endif
+
+          % if request.session.peek_flash('danger'):
+            <div id="flash">
+              <% flash = request.session.pop_flash('danger') %>
+              % for message in flash:
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                  ${message}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              % endfor
+            </div>
+          % endif
+
           <div class="col-md-10">
             ${ next.body() }
           </div>
