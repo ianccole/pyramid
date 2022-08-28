@@ -1,6 +1,7 @@
 from pyramid.view import view_config
 from pyramid.response import Response
 from sqlalchemy.exc import SQLAlchemyError
+from pyramid.httpexceptions import HTTPFound
 
 from .. import models
 
@@ -25,6 +26,9 @@ def edit(request):
         row.name = name
         row.value = value
         request.session.flash('updated', 'success')
+
+        next_url = request.route_url('home')
+        return HTTPFound(location=next_url)
 
     try:
         row = request.dbsession.query(models.MyModel).filter(models.MyModel.id==id).one()
