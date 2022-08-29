@@ -10,8 +10,10 @@ log = logging.getLogger(__name__)
 
 
 @view_config(route_name='add', renderer='basic:templates/add.mako')
-def edit(request):
-    # id = request.matchdict.get('id')
+def add(request):
+    table = request.matchdict.get('table')
+
+    row = request.dbsession.query(models.MyModel).first()
 
     if request.method == 'POST':
         log.info(request.POST)
@@ -39,4 +41,4 @@ def edit(request):
     # except SQLAlchemyError:
     #     return Response('bad juju', content_type='text/plain', status=500)
 
-    return {}
+    return {'row': row, 'name' : table}

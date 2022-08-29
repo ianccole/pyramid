@@ -34,5 +34,5 @@ def edit(request):
         row = request.dbsession.query(models.MyModel).filter(models.MyModel.id==id).one()
     except SQLAlchemyError:
         return Response('bad juju', content_type='text/plain', status=500)
-
-    return {'row': row}
+    log.info(row.__dict__.items())
+    return {'row': row, 'name' : 'MyModel'}

@@ -8,7 +8,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-@view_config(route_name='home', renderer='basic:templates/mytemplate.mako')
+@view_config(route_name='home', renderer='basic:templates/display.mako')
 def my_view(request):
 
     try:
@@ -18,4 +18,4 @@ def my_view(request):
     except SQLAlchemyError:
         return Response('bad juju', content_type='text/plain', status=500)
     # return {'one': one, 'project': 'basic'}
-    return {'rows': rows}
+    return {'rows': rows, 'name' : 'MyModel'}
