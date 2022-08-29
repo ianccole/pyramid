@@ -16,11 +16,9 @@
         </thead>
         <tbody>
             <tr>
-            <tr>
                 % for key in row.__dict__.keys():
                     ${makevalue(key, row.__dict__[key])}
                 % endfor
-            </tr>
             </tr>
         </tbody>
     </table>

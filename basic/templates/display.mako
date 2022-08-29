@@ -26,12 +26,12 @@
         % endfor
 
         <td>
-            <small><a href="${request.route_url('edit', id=row.id, _query=dic)}">edit</a></small>
-            <small><a href="${request.route_url('delete', id=row.id, _query=dic)}">delete</a></small> 
+            <small><a href="${request.route_url(name+'Edit', id=row.id, _query=dic)}">edit</a></small>
+            <small><a href="${request.route_url(name+'Del', id=row.id, _query=dic)}">delete</a></small> 
         </td>
     </tr>
 </%def>
-<a href="${request.route_url('add')}" class="btn btn-default">add</a>
+<a href="${request.route_url(name+'Add')}" class="btn btn-default">add</a>
     
 <%def name="makehead(key)">
     % if str(key)[0] != '_':
@@ -42,13 +42,5 @@
 <%def name="makevalue(key, value)">
     % if str(key)[0] != '_':
         <td>${value}</td>
-
-        ## % if 'id' in str(key):
-        ##     <td>${value}</td>
-        ## % else:
-        ##     <td>
-        ##         <input type="text" class="form-control" name=${value} id=${value} value=${value}>
-        ##     </td>
-        ## % endif
     % endif
 </%def>

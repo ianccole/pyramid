@@ -33,12 +33,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="${request.route_url('home')}">MyModel</a>
+        ## <a class="navbar-brand" href="${request.route_url('home')}">basic</a>
       </div>
 
       <div class="collapse navbar-collapse" id="antenna-nav">
         <ul class="nav navbar-nav">
-          <li><a href="${request.route_url('home')}">home</a></li>
+          <li><a href="${request.route_url('MyModel')}">MyModel</a></li>
+          <li><a href="${request.route_url('CfgVarType')}">CfgVarType</a></li>
           ## <li><a href="${request.route_url('unitsnoslash')}">Units</a></li>
           ## <li><a href="${request.route_url('testtypes')}">TestTypes</a></li>
           ## <li><a href="${request.route_url('testsets')}">TestSets</a></li>
