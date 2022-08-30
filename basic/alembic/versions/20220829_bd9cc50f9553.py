@@ -22,6 +22,8 @@ def upgrade():
     sa.PrimaryKeyConstraint('id', name=op.f('cfg_var'))
     )
 
+    op.execute("INSERT INTO cfg_var_type (name) VALUES ('Bool')")
+
     op.create_table('cfg_var',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.Text(), nullable=True),
@@ -31,6 +33,7 @@ def upgrade():
     )
     # op.create_index('cfg_var_index', 'cfg_var', ['name'], unique=True, mysql_length=255)
 
+    op.execute("INSERT INTO cfg_var (name, value, var_type_id) VALUES ('test', 'True', '1')")
 
 def downgrade():
     op.drop_table('cfg_var_type')
