@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        ## <a class="navbar-brand" href="${request.route_url('home')}">basic</a>
+        <a class="navbar-brand" href="${request.route_url('home')}">DemoApp</a>
       </div>
 
       <div class="collapse navbar-collapse" id="antenna-nav">
