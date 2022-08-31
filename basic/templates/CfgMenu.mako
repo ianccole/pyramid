@@ -18,8 +18,8 @@
 }
 </style>
 
-% for jj in range(2):
-    <div class="form-group col-md-6">
+% for jj in range(3):
+    <div class="form-group col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">${'example_%s'%jj}</div>    
             <div class="panel-body">

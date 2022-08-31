@@ -56,8 +56,7 @@
       </div>
     </nav>
 
-    <div class="starter-template1">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           ## <div class="col-md-2">
           ##   <img class="logo img-responsive" src="${request.static_url('basic:static/pyramid.png') }" alt="pyramid web framework">
@@ -138,8 +137,6 @@
         ##   </div>
         ## </div>
       </div>
-    </div>
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
