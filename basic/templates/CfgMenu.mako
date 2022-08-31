@@ -12,6 +12,12 @@
 ##   <li role="presentation"><a href="#">Messages</a></li>
 ## </ul>
 
+<style>
+.form-group {
+    margin-bottom: 1px;
+}
+</style>
+
 % for jj in range(2):
     <div class="form-group col-md-6">
         <div class="panel panel-default">
