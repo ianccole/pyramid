@@ -10,3 +10,5 @@ def includeme(config):
     config.add_route('CfgVarTypeAdd',   '/CfgVarTypeAdd')
     config.add_route('CfgVarTypeDel',   '/CfgVarTypeDel/{id}')
     config.add_route('CfgVarTypeEdit',  '/CfgVarTypeEdit/{id}')
+
+    config.add_route('CfgMenu',         '/CfgMenu')

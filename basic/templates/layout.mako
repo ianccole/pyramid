@@ -40,6 +40,7 @@
         <ul class="nav navbar-nav">
           <li><a href="${request.route_url('MyModel')}">MyModel</a></li>
           <li><a href="${request.route_url('CfgVarType')}">CfgVarType</a></li>
+          <li><a href="${request.route_url('CfgMenu')}">CfgMenu</a></li>
           ## <li><a href="${request.route_url('unitsnoslash')}">Units</a></li>
           ## <li><a href="${request.route_url('testtypes')}">TestTypes</a></li>
           ## <li><a href="${request.route_url('testsets')}">TestSets</a></li>
