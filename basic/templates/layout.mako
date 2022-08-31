@@ -24,7 +24,6 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#antenna-nav">
@@ -33,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="${request.route_url('home')}">DemoApp</a>
+        ## <a class="navbar-brand" href="${request.route_url('home')}">DemoApp</a>
       </div>
 
       <div class="collapse navbar-collapse" id="antenna-nav">
@@ -56,87 +55,64 @@
       </div>
     </nav>
 
-      <div class="container-fluid">
-        <div class="row">
-          ## <div class="col-md-2">
-          ##   <img class="logo img-responsive" src="${request.static_url('basic:static/pyramid.png') }" alt="pyramid web framework">
-          ## </div>
-
-          % if request.session.peek_flash('success'):
-            <div id="flash">
-              <% flash = request.session.pop_flash('success') %>
-              % for message in flash:
-                <div class="alert alert-success alert-dismissible" role="alert">
-                  ${message}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              % endfor
+    <div class="container-fluid">
+      % if request.session.peek_flash('success'):
+        <div id="flash">
+          <% flash = request.session.pop_flash('success') %>
+          % for message in flash:
+            <div class="alert alert-success alert-dismissible" role="alert">
+              ${message}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-          % endif
-
-          % if request.session.peek_flash('info'):
-            <div id="flash">
-              <% flash = request.session.pop_flash('info') %>
-              % for message in flash:
-                <div class="alert alert-info alert-dismissible" role="alert">
-                  ${message}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              % endfor
-            </div>
-          % endif
-
-          % if request.session.peek_flash('warn'):
-            <div id="flash">
-              <% flash = request.session.pop_flash('warn') %>
-              % for message in flash:
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                  ${message}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              % endfor
-            </div>
-          % endif
-
-          % if request.session.peek_flash('danger'):
-            <div id="flash">
-              <% flash = request.session.pop_flash('danger') %>
-              % for message in flash:
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                  ${message}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              % endfor
-            </div>
-          % endif
-
-          <div class="col-md-10">
-            ${ next.body() }
-          </div>
+          % endfor
         </div>
-        ## <div class="row">
-        ##   <div class="links">
-        ##     <ul>
-        ##       <li><i class="glyphicon glyphicon-cog icon-muted"></i><a href="https://github.com/Pylons/pyramid">Github Project</a></li>
-        ##       <li><i class="glyphicon glyphicon-globe icon-muted"></i><a href="https://webchat.freenode.net/?channels=pyramid">IRC Channel</a></li>
-        ##       <li><i class="glyphicon glyphicon-home icon-muted"></i><a href="https://pylonsproject.org">Pylons Project</a></li>
-        ##     </ul>
-        ##   </div>
-        ## </div>
-        ## <div class="row">
-        ##   <div class="copyright">
-        ##     Copyright &copy; Pylons Project
-        ##   </div>
-        ## </div>
-      </div>
+      % endif
+
+      % if request.session.peek_flash('info'):
+        <div id="flash">
+          <% flash = request.session.pop_flash('info') %>
+          % for message in flash:
+            <div class="alert alert-info alert-dismissible" role="alert">
+              ${message}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          % endfor
+        </div>
+      % endif
+
+      % if request.session.peek_flash('warn'):
+        <div id="flash">
+          <% flash = request.session.pop_flash('warn') %>
+          % for message in flash:
+            <div class="alert alert-warning alert-dismissible" role="alert">
+              ${message}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          % endfor
+        </div>
+      % endif
+
+      % if request.session.peek_flash('danger'):
+        <div id="flash">
+          <% flash = request.session.pop_flash('danger') %>
+          % for message in flash:
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              ${message}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          % endfor
+        </div>
+      % endif
+      ${ next.body() }
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
