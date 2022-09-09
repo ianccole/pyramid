@@ -191,24 +191,13 @@ class CfgVarTypeView:
         response.app_iter = message_generator()
         return response
 
+    @view_config(route_name = 'eventdemo', renderer='basic:templates/eventdemo.mako')
+    def eventdemo(self):
+        return {'row': 'example'}
+
 def message_generator():
-    # socket2 = context.socket(zmq.SUB)
-    # socket2.connect(SOCK)
-    # socket2.setsockopt(zmq.SUBSCRIBE, '')
 
     for ii in range(100):
-        # yield "data: %s\n\n" %ii
+        log.info(ii)
         yield b"data: %s\n\n" % json.dumps({'message': str(ii)}).encode()
-        time.sleep(random.randint(1, 10))
-        # msg = str(time.time())
-        # yield "data: fubar\n\n"
-
-    for ii in range(10):
-        time.sleep(5)
-        msg = str(time.time())
-        yield "data: fubar\n\n"
-        # yield "data: %s\n\n" % json.dumps({'message': msg})
-
-    # while True:
-    #     msg = socket2.recv()
-    #     yield "data: %s\n\n" % json.dumps({'message': msg})
+        time.sleep(random.randint(1, 10))    
