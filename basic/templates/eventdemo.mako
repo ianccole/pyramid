@@ -2,7 +2,6 @@
 
 <h3>Event demo</h3>
 <div class="content">
-    here
     <div id="result"></div>
 </div>
 
