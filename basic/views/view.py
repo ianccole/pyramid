@@ -2,7 +2,7 @@ from pyramid.view import view_config
 from pyramid.response import Response
 from sqlalchemy.exc import SQLAlchemyError
 from pyramid.httpexceptions import HTTPFound
-
+import time, json, random
 from .. import models
 
 import logging
@@ -182,3 +182,33 @@ class CfgVarTypeView:
             return Response('bad juju', content_type='text/plain', status=500)
         log.info(row.__dict__.items())
         return {'row': row, 'name' : 'MyModel'}
+
+    @view_config(route_name = 'events')
+    def events(self):
+        headers = [('Content-Type', 'text/event-stream'),
+                ('Cache-Control', 'no-cache')]
+        response = Response(headerlist=headers)
+        response.app_iter = message_generator()
+        return response
+
+def message_generator():
+    # socket2 = context.socket(zmq.SUB)
+    # socket2.connect(SOCK)
+    # socket2.setsockopt(zmq.SUBSCRIBE, '')
+
+    for ii in range(100):
+        # yield "data: %s\n\n" %ii
+        yield b"data: %s\n\n" % json.dumps({'message': str(ii)}).encode()
+        time.sleep(random.randint(1, 10))
+        # msg = str(time.time())
+        # yield "data: fubar\n\n"
+
+    for ii in range(10):
+        time.sleep(5)
+        msg = str(time.time())
+        yield "data: fubar\n\n"
+        # yield "data: %s\n\n" % json.dumps({'message': msg})
+
+    # while True:
+    #     msg = socket2.recv()
+    #     yield "data: %s\n\n" % json.dumps({'message': msg})
