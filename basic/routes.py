@@ -14,4 +14,4 @@ def includeme(config):
     config.add_route('CfgMenu',         '/CfgMenu')
 
     config.add_route('events',          '/events')
-    config.add_route('eventdemo',       '/eventdemo')
+    config.add_route('EventDemo',       '/EventDemo')

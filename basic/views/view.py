@@ -191,7 +191,7 @@ class CfgVarTypeView:
         response.app_iter = message_generator()
         return response
 
-    @view_config(route_name = 'eventdemo', renderer='basic:templates/eventdemo.mako')
+    @view_config(route_name = 'EventDemo', renderer='basic:templates/EventDemo.mako')
     def eventdemo(self):
         return {'row': 'example'}
 

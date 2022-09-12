@@ -40,7 +40,7 @@
           <li><a href="${request.route_url('MyModel')}">MyModel</a></li>
           <li><a href="${request.route_url('CfgVarType')}">CfgVarType</a></li>
           <li><a href="${request.route_url('CfgMenu')}">CfgMenu</a></li>
-          <li><a href="${request.route_url('eventdemo')}">events</a></li>
+          <li><a href="${request.route_url('EventDemo')}">EventDemo</a></li>
           ## <li><a href="${request.route_url('unitsnoslash')}">Units</a></li>
           ## <li><a href="${request.route_url('testtypes')}">TestTypes</a></li>
           ## <li><a href="${request.route_url('testsets')}">TestSets</a></li>

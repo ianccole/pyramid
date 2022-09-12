@@ -1,6 +1,6 @@
 <%inherit file="layout.mako"/>
 
-<h3>Event demo</h3>
+<h3>EventDemo</h3>
 <div class="content">
     <div id="result"></div>
 </div>
